@@ -53,7 +53,7 @@ int main() {
 Program diatas dibuat untuk menjalankan empat operasi aritmatika dasar pada dua bilangan float yang diinput. Setelah mendeklarasikan dan menerima kedua input, program menggunakan std::setprecision untuk memformat semua hasil desimal menjadi dua angka di belakang koma. Hasil penjumlahan, pengurangan, dan perkalian dicetak langsung. Yang terpenting, operasi pembagian dienkapsulasi dalam pengecekan if-else; ini berfungsi sebagai mekanisme keamanan untuk mencegah error pembagian dengan nol, memastikan program tetap stabil dan memberikan feedback yang sesuai jika pembilang bernilai nol
 
 > Output
-> 
+> ![Screenshot bagian x]()
 
 
 
@@ -195,7 +195,7 @@ int main() {
 Program diatas menghasilkan pola angka mirror bertingkat berdasarkan input N. Pola dibuat menggunakan perulangan bersarang (nested loops) yang berjalan dari N hingga 1. Di setiap baris, loop mencetak spasi indentasi yang bertambah, diikuti angka yang menurun (sisi kiri) dan kemudian menaikt (sisi kanan). Stabilitas program bergantung pada pemosisian yang tepat dari angka, pemisah (*), dan pengecekan kondisi untuk mencegah karakter tambahan, sehingga pola simetrisnya dapat terbentuk dengan akurat.
 
 > Output
-> ![Screenshot bagian x](output/screenshot_soal2B.png)
+> ![Screenshot bagian x](output/Screenshot_unguided3.png)
 
 
 
