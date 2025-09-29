@@ -126,7 +126,7 @@ Program diatas berfungsi sebagai konverter bilangan bulat positif dalam rentang 
 Kalau adalanjutan di lanjut disini aja
 
 > Output
-> ![Screenshot bagian x](output/screenshot_soal2A.png)
+> ![Screenshot bagian x](output/Screenshot_unguided2.png)
 
 
 ### Soal 3
