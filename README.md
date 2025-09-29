@@ -83,7 +83,7 @@ Kode C++ di atas adalah program sederhana yang menghitung nilai variabel Z. Prog
 Kode C++ diatas secara modular menghitung dan menampilkan luas serta keliling persegi panjang. Program diawali dengan meminta panjang dan lebar dari pengguna. Logika perhitungan dipecah menjadi dua fungsi terpisah (hitungLuas dan hitungKeliling) yang mengembalikan nilai double untuk digunakan kembali di main(). Selain itu, terdapat satu prosedur (tampilkanHasil, bertipe void) yang tidak mengembalikan nilai tetapi bertanggung jawab langsung untuk menerima data dan mencetak semua hasil perhitungan sekaligus ke konsol, mendemonstrasikan kedua pendekatan dalam membagi tugas pemrograman.
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](output/Screenshot_guided2.png)
 
 
 
@@ -150,7 +150,7 @@ int main()
 Kode c++ diatas aktif menjalankan program menggunakan struktur kendali switch untuk mengidentifikasi apakah sebuah kode angka hari merupakan Hari Kerja atau Hari Libur. Program pertama meminta pengguna memasukkan sebuah bilangan bulat (kode_hari) setelah menampilkan panduan kode hari 1 hingga 7. Nilai input tersebut kemudian diuji oleh pernyataan switch. Kasus 1 hingga 5 (Senin sampai Jumat) dikelompokkan bersama (fall-through karena tidak ada break di antara mereka) dan menghasilkan output "Hari Kerja". Kasus 6 dan 7 (Sabtu dan Minggu) juga dikelompokkan dan menghasilkan "Hari Libur". Blok default berfungsi sebagai penanganan kesalahan, mencetak pesan "Kode masukan salah!!!" jika pengguna memasukkan angka di luar rentang 1 hingga 7.
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](output/Screenshot_guided3.png)
 
 
 ### soal 4 (Perulangan)
@@ -188,7 +188,7 @@ int main()
 Kode C++ diatas aktif menjalankan program ini mendemonstrasikan struktur perulangan do-while untuk mencetak pesan berulang kali. Program dimulai dengan menginisialisasi variabel kontrol i menjadi 1 dan meminta pengguna memasukkan batas perulangan (jum). Perulangan do-while memiliki jaminan untuk dieksekusi minimal satu kali sebelum kondisinya diperiksa. Dalam setiap iterasi, program mencetak pesan "bahlil ke-" diikuti nilai i + 1, dan kemudian nilai i dinaikkan satu per satu (i++). Proses perulangan ini akan terus berlanjut selama kondisi i < jum masih bernilai benar, berhenti ketika i sudah mencapai atau melebihi batas yang ditentukan oleh pengguna.
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](output/Screenshot_guided4.png)
 
 
 ### soal 5 (Struct)
@@ -228,7 +228,7 @@ int main() {
 Kode C++ di atas mendemonstrasikan penggunaan struct (struktur) untuk mengelompokkan data yang saling berkaitan, dalam hal ini data seorang mahasiswa. Awalnya, struktur bernama Mahasiswa didefinisikan untuk menampung tiga tipe data: string nama, string nim, dan float ipk. Dalam fungsi main(), sebuah variabel struktur bernama mhs1 dideklarasikan dari tipe Mahasiswa. Program kemudian meminta pengguna untuk memasukkan data: nama, NIM, dan IPK, dan menyimpannya ke anggota struktur menggunakan operator titik (misalnya, mhs1.nama). Perlu diperhatikan, untuk input nama digunakan getline(cin, ...) agar nama yang mengandung spasi dapat dimasukkan sepenuhnya. Terakhir, program mencetak semua data yang telah disimpan (Nama, NIM, dan IPK) ke konsol, mengonfirmasi bahwa data telah berhasil dikelompokkan dan diakses melalui variabel mhs1.
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](output/Screenshot_guided5.png)
 
 ### soal 6 (Test)
 ```c++
@@ -247,7 +247,7 @@ int main()
 Kode C++ diatas berfungsi untuk menerima dan menampilkan satu karakter dari input pengguna. Meskipun variabel ch dideklarasikan sebagai string, program ini secara khusus menggunakan fungsi getchar() untuk membaca input. getchar() adalah fungsi dari library C (<cstdio> atau <stdio.h>) yang diakses melalui C++ dan dirancang untuk membaca satu karakter dari input standar (stdin). Karakter yang dibaca oleh getchar() dikembalikan sebagai nilai integer (kode ASCII), yang kemudian secara implisit diubah menjadi string saat diberikan ke variabel ch. Akhirnya, program mencetak pesan yang mengonfirmasi karakter tunggal yang berhasil di-input oleh pengguna
 
 > Output
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](output/Screenshot_guided6.png)
 
 ## Unguided
 
