@@ -1,9 +1,10 @@
-# <h1 align="center">Laporan Praktikum Modul 2 <br> PENGENALAN C++ </h1>
+# <h1 align="center">Laporan Praktikum Modul 2 <br> ARRAY </h1>
 <p align="center">Dahragassya Safnas Adiyata - 103112430146</p>
 
 ## Dasar Teori
 
-C++ adalah bahasa pemrograman tingkat menengah yang dikembangkan oleh Bjarne Stroustrup di Bell Labs pada awal 1980-an, sebagai evolusi dari bahasa C (yang awalnya dibuat oleh Dennis Ritchie untuk sistem Unix). C++ dibangun untuk mempertahankan efisiensi dan dukungan pemrograman tingkat rendah (low level coding) dari C, namun dengan penambahan konsep-konsep baru. Perbedaan paling mendasar adalah dukungan penuh C++ terhadap Pemrograman Berorientasi Objek (OOP), memperkenalkan fitur seperti class, inheritance, dan overloading.
+Array dalam C++ merupakan struktur data yang menyimpan sekelompok elemen data dengan tipe yang seragam dalam tempat penyimpanan memori yang berdekatan, diakses melalui indeks yang dimulai dari nol. Array memiliki ukuran tetap yang ditentukan saat pembentukan, dan menawarkan cara efisien untuk menyimpan dan mengelola banyak data serupa, seperti angka atau string, dalam satu variabel
+
 
 ## Guided
 
