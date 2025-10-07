@@ -36,7 +36,7 @@ int main()
 
 ```
 
-Kode program C++ ini secara efektif mendemonstrasikan Call by Reference dengan tujuan mengkuadratkan sebuah bilangan bulat. Program dimulai dengan meminta pengguna memasukkan nilai awal ke dalam variabel nilai. Inti dari kode terletak pada fungsi kuadratkan(int &angka), di mana tanda ampersand (&) pada parameternya menunjukkan bahwa angka adalah referensi—bukan salinan—dari variabel nilai asli di main(). Akibatnya, ketika angka = angka * angka dijalankan, ia langsung memodifikasi nilai variabel nilai di lokasi memori aslinya. Program kemudian mencetak nilai nilai yang telah diubah menjadi kuadratnya, membuktikan keberhasilan call by reference dalam memodifikasi variabel di luar fungsi pemanggil
+Kode ini mendemonstrasikan Call by Pointer, di mana fungsi tukar menerima alamat memori (&a, &b) melalui parameter pointer (*px, *py). Dengan menggunakan operator dereference (*), fungsi tersebut langsung mengakses dan menukar nilai yang ada di lokasi memori tersebut. Hasilnya, nilai asli variabel a dan b di main() diubah secara permanen (dari 10,20 menjadi 20,10), membuktikan bahwa fungsi berhasil memanipulasi variabel di luar cakupannya.
 
 > Output
 > ![Screenshot bagian x](outputmodul2/Screenshot_guided1.png)
