@@ -43,58 +43,38 @@ Kode program C++ ini secara efektif mendemonstrasikan Call by Reference dengan t
 
 
 
-### soal 2 (fungsi)
+### guided 2
 
 
-    #include <iostream>
-    using namespace std;
+```c++
+#include <iostream>
+using namespace std;
 
-    // Prosedur: hanya menampilkan hasil, tidak mengembalikan nilai
-    void tampilkanHasil(double p, double l)
-    {
-    cout << "\n=== Hasil Perhitungan ===" << endl;
-    cout << "Panjang : " << p << endl;
-    cout << "Lebar   : " << l << endl;
-    cout << "Luas    : " << p * l << endl;
-    cout << "Keliling: " << 2 * (p + l) << endl;
-    }
+void tukar(int *px, int *py);
 
-    // Fungsi: mengembalikan nilai luas
-    double hitungLuas(double p, double l)
-    {    
-    return p * l;
-    }
-
-    // Fungsi: mengembalikan nilai keliling
-    double hitungKeliling(double p, double l)
-    {
-    return 2 * (p + l);
-    }
-
-    int main()
-    {
-    double panjang, lebar;
-
-    cout << "Masukkan panjang: ";
-    cin >> panjang;
-    cout << "Masukkan lebar  : ";
-    cin >> lebar;
-
-    // Panggil fungsi
-    double luas = hitungLuas(panjang, lebar);
-    double keliling = hitungKeliling(panjang, lebar);
-
-    cout << "\nDihitung dengan fungsi:" << endl;
-    cout << "Luas      = " << luas << endl;
-    cout << "Keliling  = " << keliling << endl;
-
-    // Panggil prosedur
-    tampilkanHasil(panjang, lebar);
-
+int main()
+{   
+    int a = 10, b = 20;
+    
+    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl; 
+    
+    tukar(&a, &b); 
+    
+    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
+    
     return 0;
-    }
+}
 
-Kode C++ diatas secara modular menghitung dan menampilkan luas serta keliling persegi panjang. Program diawali dengan meminta panjang dan lebar dari pengguna. Logika perhitungan dipecah menjadi dua fungsi terpisah (hitungLuas dan hitungKeliling) yang mengembalikan nilai double untuk digunakan kembali di main(). Selain itu, terdapat satu prosedur (tampilkanHasil, bertipe void) yang tidak mengembalikan nilai tetapi bertanggung jawab langsung untuk menerima data dan mencetak semua hasil perhitungan sekaligus ke konsol, mendemonstrasikan kedua pendekatan dalam membagi tugas pemrograman.
+void tukar(int *px, int *py)
+{
+    int temp = *px; 
+    
+    *px = *py; 
+    
+    *py = temp; 
+}
+```
+Kode program C++ ini mendemonstrasikan Call by Reference menggunakan pointer untuk menukar nilai dua variabel integer, a dan b. Fungsi main() menginisialisasi a = 10 dan b = 20, kemudian memanggil prosedur tukar dengan melewatkan alamat memori dari a dan b menggunakan operator address-of (&a, &b). Di dalam fungsi tukar, parameter *px dan *py adalah pointer yang menerima alamat-alamat tersebut. Fungsi ini berhasil menukar nilai a dan b secara permanen dengan melakukan swapping pada nilai yang ditunjuk (menggunakan operator dereference *), sehingga setelah tukar selesai, main() mencetak nilai a = 20 dan b = 10, membuktikan bahwa nilai asli variabel telah diubah.
 
 > Output
 > ![Screenshot bagian x](output/Screenshot_guided2.png)
