@@ -39,7 +39,7 @@ int main()
 Kode program C++ ini secara efektif mendemonstrasikan Call by Reference dengan tujuan mengkuadratkan sebuah bilangan bulat. Program dimulai dengan meminta pengguna memasukkan nilai awal ke dalam variabel nilai. Inti dari kode terletak pada fungsi kuadratkan(int &angka), di mana tanda ampersand (&) pada parameternya menunjukkan bahwa angka adalah referensi—bukan salinan—dari variabel nilai asli di main(). Akibatnya, ketika angka = angka * angka dijalankan, ia langsung memodifikasi nilai variabel nilai di lokasi memori aslinya. Program kemudian mencetak nilai nilai yang telah diubah menjadi kuadratnya, membuktikan keberhasilan call by reference dalam memodifikasi variabel di luar fungsi pemanggil
 
 > Output
-> ![Screenshot bagian x](output/Screenshot_guided1.png)
+> ![Screenshot bagian x](outputmodul2/Screenshot_guided1.png)
 
 
 
@@ -160,7 +160,7 @@ int main()
 
 Kode program C++ ini dirancang untuk melakukan transpose (mengubah baris menjadi kolom) pada sebuah matriks 3×3, dengan memisahkan tugas menjadi tiga fungsi utama demi kejelasan dan modularitas. Fungsi input_matriks bertugas meminta sembilan angka dari pengguna (tiga per baris) untuk mengisi matriks_awal. Fungsi transpose_matriks kemudian memproses matriks tersebut menggunakan logika inti matriks_transpose[i][j] = matriks_awal[j][i]. Terakhir, fungsi cetak_matriks bertanggung jawab mencetak kedua matriks (awal dan hasil transpose) ke layar dengan rapi menggunakan std::setw(3). Fungsi main() hanya berfungsi sebagai orkestrator yang memanggil ketiga fungsi ini secara berurutan untuk menyelesaikan seluruh proses
 > Output
-> ![Screenshot bagian x](output/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
 
 
 
@@ -198,4 +198,4 @@ int main()
 Kode ini meminta pengguna memasukkan sebuah angka (nilai). Kemudian, ia memanggil fungsi kuadratkan, yang didefinisikan menggunakan referensi (&). Karena ada tanda &, fungsi tersebut tidak membuat salinan dari nilai, melainkan mendapatkan akses langsung ke variabel nilai yang asli di memori. Ketika angka = angka * angka dijalankan di dalam fungsi, ia mengubah nilai variabel asli (nilai) menjadi kuadratnya. Hasilnya, nilai yang dicetak sebelum dan sesudah pemanggilan fungsi akan berbeda, membuktikan bahwa fungsi berhasil mengubah variabel nilai secara permanen.
 
 > Output
-> ![Screenshot bagian x](output/Screenshot_unguided2.png)
+> ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
