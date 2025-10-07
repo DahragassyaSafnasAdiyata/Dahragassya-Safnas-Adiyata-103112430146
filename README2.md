@@ -7,22 +7,35 @@ C++ adalah bahasa pemrograman tingkat menengah yang dikembangkan oleh Bjarne Str
 
 ## Guided
 
-### soal 1 (Aritmatika)
-    #include <iostream>
-    using namespace std;
-    int main()
-    {
-    int W, X, Y;
-    float Z;
-    X = 7;
-    Y = 3;
-    W = 1;
-    Z = (X + Y) / (Y + W);
-    cout << "Nilai z = " << Z << endl;
-    return 0;
-    }
+### guided 1
+   ```c++
+#include <iostream>
+using namespace std;
 
-Kode C++ di atas adalah program sederhana yang menghitung nilai variabel Z. Program pertama-tama mendeklarasikan tiga variabel integer (W, X, Y) dan satu variabel floating-point (Z). Variabel X diinisialisasi dengan nilai 7, Y dengan 3, dan W dengan 1. Perhitungan nilai Z menggunakan rumus (X + Y) / (Y + W), yang secara matematis adalah (7+3)/(3+1) atau 10/4. Karena semua operan dalam perhitungan ini adalah integer (X, Y, W), operasi 10/4 akan menghasilkan pembagian integer, yang hasilnya adalah 2 (sisa 2 diabaikan), dan hasil integer 2 ini kemudian diubah (cast) menjadi float saat disimpan di variabel Z. Akhirnya, program mencetak pesan "Nilai z = " diikuti nilai 2.00 (atau 2) ke konsol.
+void kuadratkan(int &angka)
+{
+    angka = angka * angka;
+}
+
+int main()
+{
+    int nilai;
+
+    cout << "Masukkan nilai awal yang ingin dikuadratkan: ";
+    cin >> nilai;
+
+    cout << "Nilai awal: " << nilai << endl;
+
+    kuadratkan(nilai);
+
+    cout << "Nilai setelah dikuadratkan: " << nilai << endl;
+
+    return 0;
+}
+
+```
+
+Kode program C++ ini secara efektif mendemonstrasikan Call by Reference dengan tujuan mengkuadratkan sebuah bilangan bulat. Program dimulai dengan meminta pengguna memasukkan nilai awal ke dalam variabel nilai. Inti dari kode terletak pada fungsi kuadratkan(int &angka), di mana tanda ampersand (&) pada parameternya menunjukkan bahwa angka adalah referensi—bukan salinan—dari variabel nilai asli di main(). Akibatnya, ketika angka = angka * angka dijalankan, ia langsung memodifikasi nilai variabel nilai di lokasi memori aslinya. Program kemudian mencetak nilai nilai yang telah diubah menjadi kuadratnya, membuktikan keberhasilan call by reference dalam memodifikasi variabel di luar fungsi pemanggil
 
 > Output
 > ![Screenshot bagian x](output/Screenshot_guided1.png)
