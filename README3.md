@@ -81,60 +81,228 @@ Kode ini adalah program utama (main) yang memanfaatkan struktur dan fungsi yang 
 
 ```c++
 #include <iostream>
-#include <iomanip>
-
+#include <string>
 using namespace std;
 
-const int N = 3;
+struct Mahasiswa {
+    string nama;
+    string nim;
+    float uts;
+    float uas;
+    float tugas;
+    float nilaiAkhir;
+};
 
-void input_matriks(int matriks[N][N]) {
-    cout << "Masukkan elemen Matriks " << N << "x" << N << " (baris per baris):" << endl;
-    
-    for (int i = 0; i < N; ++i) {
-        cout << "Baris " << i + 1 << ": ";
-        for (int j = 0; j < N; ++j) {
-            cin >> matriks[i][j];
-        }
+float hitungNilaiAkhir(float uts, float uas, float tugas) {
+    return (0.3 * uts) + (0.4 * uas) + (0.3 * tugas);
+}
+
+void inputMahasiswa(Mahasiswa &mhs) {
+    cout << "Masukkan Nama          : ";
+    getline(cin, mhs.nama);
+    cout << "Masukkan NIM           : ";
+    getline(cin, mhs.nim);
+    cout << "Masukkan Nilai UTS     : ";
+    cin >> mhs.uts;
+    cout << "Masukkan Nilai UAS     : ";
+    cin >> mhs.uas;
+    cout << "Masukkan Nilai Tugas   : ";
+    cin >> mhs.tugas;
+    cin.ignore();
+    mhs.nilaiAkhir = hitungNilaiAkhir(mhs.uts, mhs.uas, mhs.tugas);
+}
+
+void tampilMahasiswa(Mahasiswa mhs[], int jumlah) {
+    cout << "\n==============================================\n";
+    cout << "Daftar Data Mahasiswa\n";
+    cout << "==============================================\n";
+    for (int i = 0; i < jumlah; i++) {
+        cout << "Mahasiswa ke-" << i + 1 << endl;
+        cout << "Nama                 : " << mhs[i].nama << endl;
+        cout << "NIM                  : " << mhs[i].nim << endl;
+        cout << "UTS                  : " << mhs[i].uts << endl;
+        cout << "UAS                  : " << mhs[i].uas << endl;
+        cout << "Tugas                : " << mhs[i].tugas << endl;
+        cout << "Nilai Akhir          : " << mhs[i].nilaiAkhir << endl;
+        cout << "----------------------------------------------\n";
     }
 }
 
-void transpose_matriks(const int matriks_awal[N][N], int matriks_transpose[N][N]) {
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            matriks_transpose[i][j] = matriks_awal[j][i];
-        }
-    }
-}
+int main() {
+    Mahasiswa daftarMhs[10];
+    int jumlah;
 
-void cetak_matriks(const int matriks[N][N], const char* judul) {
-    cout << "\n" << judul << ":" << endl;
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            cout << setw(3) << matriks[i][j];
-        }
-        cout << endl;
-    }
-}
+    cout << "Masukkan jumlah mahasiswa (max 10): ";
+    cin >> jumlah;
+    cin.ignore();
 
-int main()
-{
-    int matriks_awal[N][N];
-    int matriks_transpose[N][N];
-    
-    input_matriks(matriks_awal);
-    
-    transpose_matriks(matriks_awal, matriks_transpose);
-    
-    cetak_matriks(matriks_awal, "Matriks Awal");
-    cetak_matriks(matriks_transpose, "Matriks Hasil Transpose");
+    if (jumlah > 10) {
+        cout << "Jumlah melebihi batas maksimum (10)!" << endl;
+        return 0;
+    }
+
+    for (int i = 0; i < jumlah; i++) {
+        cout << "\nInput data mahasiswa ke-" << i + 1 << endl;
+        inputMahasiswa(daftarMhs[i]);
+    }
+
+    tampilMahasiswa(daftarMhs, jumlah);
 
     return 0;
 }
 ```
 >
 
-Kode program C++ ini dirancang untuk melakukan transpose (mengubah baris menjadi kolom) pada sebuah matriks 3×3, dengan memisahkan tugas menjadi tiga fungsi utama demi kejelasan dan modularitas. Fungsi input_matriks bertugas meminta sembilan angka dari pengguna (tiga per baris) untuk mengisi matriks_awal. Fungsi transpose_matriks kemudian memproses matriks tersebut menggunakan logika inti matriks_transpose[i][j] = matriks_awal[j][i]. Terakhir, fungsi cetak_matriks bertanggung jawab mencetak kedua matriks (awal dan hasil transpose) ke layar dengan rapi menggunakan std::setw(3). Fungsi main() hanya berfungsi sebagai orkestrator yang memanggil ketiga fungsi ini secara berurutan untuk menyelesaikan seluruh proses
+Kode ini berfungsi sebagai program manajemen data sederhana untuk mahasiswa, menggunakan struktur Mahasiswa untuk menyimpan nama, NIM, nilai UTS, UAS, tugas, dan nilai akhir. Fungsi hitungNilaiAkhir menghitung nilai akhir mahasiswa dengan formula pembobotan (UTS 30%, UAS 40%, Tugas 30%). Fungsi inputMahasiswa meminta pengguna memasukkan semua data mahasiswa dan secara otomatis memanggil hitungNilaiAkhir untuk menyimpan hasilnya di struktur. Sementara itu, fungsi tampilMahasiswa bertugas melakukan traversal pada array Mahasiswa dan mencetak semua detail data mahasiswa yang telah dimasukkan. Program utama (main) menginisialisasi array statis dengan kapasitas 10, meminta jumlah mahasiswa yang akan diinput, memvalidasi jumlah tersebut, kemudian menggunakan loop untuk memanggil inputMahasiswa dan diakhiri dengan memanggil tampilMahasiswa untuk menampilkan ringkasan data.
 > Output
 > ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
+
+### Soal 2
+
+Pelajaran.h
+```c++
+#ifndef PELAJARAN_H_INCLUDED
+#define PELAJARAN_H_INCLUDED
+
+#include <string>
+
+struct pelajaran {
+    std::string namaMapel; 
+    std::string kodeMapel; 
+};
+
+pelajaran create_pelajaran(std::string nama, std::string kode);
+
+void tampil_pelajaran(pelajaran pel);
+
+#endif 
+```
+
+Pelajaran.cpp
+```c++
+#include "pelajaran.h"
+#include <iostream>
+#include <string>
+
+pelajaran create_pelajaran(std::string nama, std::string kode) {
+    pelajaran pelBaru;
+    pelBaru.namaMapel = nama;
+    pelBaru.kodeMapel = kode;
+    return pelBaru;
+}
+
+void tampil_pelajaran(pelajaran pel) {
+    std::cout << "nama pelajaran : " << pel.namaMapel << std::endl;
+    std::cout << "nilai : " << pel.kodeMapel << std::endl; 
+} 
+```
+
+main.cpp
+```c++
+#include "pelajaran.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string namaMapel = "Struktur Data";
+    string kodeMapel = "STD";
+    
+    pelajaran pel = create_pelajaran(namaMapel, kodeMapel);
+    
+    tampil_pelajaran(pel);
+
+    return 0;
+}
+```
+Kode ini berfungsi sebagai program utama (main) yang menguji implementasi Abstract Data Type (ADT) pelajaran, yang didefinisikan dalam file header pelajaran.h. Program dimulai dengan menginisialisasi dua variabel string, namaMapel dengan nilai "Struktur Data" dan kodeMapel dengan nilai "STD". Selanjutnya, ia memanggil fungsi create_pelajaran untuk membuat dan menginisialisasi sebuah objek pelajaran baru (pel) menggunakan dua string tersebut, yang menunjukkan penggunaan dari fungsi konstruksi ADT. Terakhir, program memanggil prosedur tampil_pelajaran untuk mencetak data yang disimpan dalam objek pel ke konsol, yang merupakan demonstrasi dari fungsi akses atau display ADT tersebut.
+> Output
+> ![Screenshot bagian x]( )
+
+### Soal 3
+
+Pelajaran.h
+```c++
+#include <iostream>
+using namespace std;
+
+void tampilArray(int arr[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}
+
+void tukarNilai(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void tukarPosisi(int arr1[3][3], int arr2[3][3], int baris, int kolom) {
+    int temp = arr1[baris][kolom];
+    arr1[baris][kolom] = arr2[baris][kolom];
+    arr2[baris][kolom] = temp;
+}
+
+void tukarPointer(int *p1, int *p2) {
+    int temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+}
+
+int main() {
+    int ArrayA[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    int ArrayB[3][3] = {
+        {10, 11, 12},
+        {13, 14, 15},
+        {16, 17, 18}
+    };
+
+    cout << "Array A sebelum ditukar:\n";
+    tampilArray(ArrayA);
+    cout << "\nArray B sebelum ditukar:\n";
+    tampilArray(ArrayB);
+
+    tukarPosisi(ArrayA, ArrayB, 1, 1);
+
+    cout << "\nSetelah menukar elemen pada posisi [1][1]:\n";
+    cout << "Array A:\n";
+    tampilArray(ArrayA);
+    cout << "\nArray B:\n";
+    tampilArray(ArrayB);
+
+    int nilaiX = 50, nilaiY = 100;
+    int *ptr1 = &nilaiX;
+    int *ptr2 = &nilaiY;
+
+    cout << "\nNilai sebelum ditukar melalui pointer:\n";
+    cout << "nilaiX = " << nilaiX << ", nilaiY = " << nilaiY << endl;
+
+    tukarPointer(ptr1, ptr2);
+
+    cout << "Nilai setelah ditukar melalui pointer:\n";
+    cout << "nilaiX = " << nilaiX << ", nilaiY = " << nilaiY << endl;
+
+    return 0;
+}
+```
+
+Kode ini mendemonstrasikan berbagai mekanisme pertukaran nilai menggunakan fungsi dan array dua dimensi berukuran 3x3. Fungsi tampilArray digunakan untuk mencetak isi array 2D; tukarNilai menukar dua nilai integer melalui reference (digunakan untuk pemahaman konsep, meskipun tidak dipanggil di main); tukarPosisi menukar elemen pada indeks tertentu ([1][1]) antara dua array (ArrayA dan ArrayB). Di main, setelah pertukaran posisi, nilai [1][1] pada ArrayA menjadi 14 dan pada ArrayB menjadi 5. Selain itu, fungsi tukarPointer menunjukkan pertukaran nilai antara dua variabel (nilaiX dan nilaiY) secara tidak langsung menggunakan pointer (ptr1 dan ptr2), di mana nilai akhir nilaiX menjadi 100 dan nilaiY menjadi 50, membuktikan bahwa fungsi berhasil memanipulasi data yang ditunjuk oleh pointer.
+
+> Output
+> ![Screenshot bagian x]( )
+
+
+
+
 
 
