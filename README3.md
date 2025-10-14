@@ -155,7 +155,7 @@ int main() {
 
 Kode ini berfungsi sebagai program manajemen data sederhana untuk mahasiswa, menggunakan struktur Mahasiswa untuk menyimpan nama, NIM, nilai UTS, UAS, tugas, dan nilai akhir. Fungsi hitungNilaiAkhir menghitung nilai akhir mahasiswa dengan formula pembobotan (UTS 30%, UAS 40%, Tugas 30%). Fungsi inputMahasiswa meminta pengguna memasukkan semua data mahasiswa dan secara otomatis memanggil hitungNilaiAkhir untuk menyimpan hasilnya di struktur. Sementara itu, fungsi tampilMahasiswa bertugas melakukan traversal pada array Mahasiswa dan mencetak semua detail data mahasiswa yang telah dimasukkan. Program utama (main) menginisialisasi array statis dengan kapasitas 10, meminta jumlah mahasiswa yang akan diinput, memvalidasi jumlah tersebut, kemudian menggunakan loop untuk memanggil inputMahasiswa dan diakhiri dengan memanggil tampilMahasiswa untuk menampilkan ringkasan data.
 > Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul3/Screenshot_unguided1.png)
 
 ### Soal 2
 
@@ -299,7 +299,7 @@ int main() {
 Kode ini mendemonstrasikan berbagai mekanisme pertukaran nilai menggunakan fungsi dan array dua dimensi berukuran 3x3. Fungsi tampilArray digunakan untuk mencetak isi array 2D; tukarNilai menukar dua nilai integer melalui reference (digunakan untuk pemahaman konsep, meskipun tidak dipanggil di main); tukarPosisi menukar elemen pada indeks tertentu ([1][1]) antara dua array (ArrayA dan ArrayB). Di main, setelah pertukaran posisi, nilai [1][1] pada ArrayA menjadi 14 dan pada ArrayB menjadi 5. Selain itu, fungsi tukarPointer menunjukkan pertukaran nilai antara dua variabel (nilaiX dan nilaiY) secara tidak langsung menggunakan pointer (ptr1 dan ptr2), di mana nilai akhir nilaiX menjadi 100 dan nilaiY menjadi 50, membuktikan bahwa fungsi berhasil memanipulasi data yang ditunjuk oleh pointer.
 
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x](outputmodul3/Screenshot_unguided1.png)
 
 
 
