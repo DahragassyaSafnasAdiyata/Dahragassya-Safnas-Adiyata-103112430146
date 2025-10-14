@@ -201,7 +201,7 @@ int main() {
 Kode di atas mengimplementasikan struktur data Single Linked List (Senarai Berantai Tunggal) dalam Bahasa Indonesia. Program ini menyediakan antarmuka menu untuk melakukan operasi dasar CRUD (Create, Read, Update, Delete) pada list. Secara garis besar, list diwakili oleh struct Node yang menyimpan data integer dan pointer next ke node berikutnya, serta dikontrol oleh pointer kepala (head) global. Fungsi-fungsi seperti sisipDepan, sisipBelakang, dan sisipSetelah menangani penambahan node baru; hapusNode membebaskan memori node yang dicari; perbaruiNode mengubah data node; dan tampilkanList melakukan traversal untuk mencetak semua elemen. Semua operasi ini memanfaatkan pointer next untuk merangkai atau memutuskan rantai node, sehingga list dapat diubah ukurannya secara dinamis.
 
 > Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_guided1.png)
+> ![Screenshot bagian x](outputmodul4/Screenshot_guided1.png)
 
 
 
@@ -326,7 +326,7 @@ Kode di atas mengimplementasikan Queue (Antrian) menggunakan Linked List untuk m
 
 
 > Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul4/Screenshot_unguided1.png)
 
 
 ### Soal 2
@@ -414,7 +414,7 @@ Kode ini mendefinisikan struktur Node yang memiliki data integer dan pointer nex
 
 
 > Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul4/Screenshot_unguided2.png)
 
 
 
