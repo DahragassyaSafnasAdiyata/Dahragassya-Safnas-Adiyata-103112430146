@@ -218,7 +218,7 @@ int main() {
 ```
 Kode ini berfungsi sebagai program utama (main) yang menguji implementasi Abstract Data Type (ADT) pelajaran, yang didefinisikan dalam file header pelajaran.h. Program dimulai dengan menginisialisasi dua variabel string, namaMapel dengan nilai "Struktur Data" dan kodeMapel dengan nilai "STD". Selanjutnya, ia memanggil fungsi create_pelajaran untuk membuat dan menginisialisasi sebuah objek pelajaran baru (pel) menggunakan dua string tersebut, yang menunjukkan penggunaan dari fungsi konstruksi ADT. Terakhir, program memanggil prosedur tampil_pelajaran untuk mencetak data yang disimpan dalam objek pel ke konsol, yang merupakan demonstrasi dari fungsi akses atau display ADT tersebut.
 > Output
-> ![Screenshot bagian x]( )
+> ![Screenshot bagian x](outputmodul3/Screenshot_main.png)
 
 ### Soal 3
 
