@@ -10,74 +10,69 @@ Abstract Data Type (ADT), atau Tipe Data Abstrak, adalah konsep fundamental dala
 
 ### guided 1
    ```c++
+#ifndef MAHASISWA_H_INCLUDED
+#define MAHASISWA_H_INCLUDED
+
+struct mahasiswa
+{
+    char nim[10];
+    int nilai1, nilai2;
+};
+
+void inputMhs(mahasiswa &m);
+float rata2(mahasiswa m);
+
+#endif
+
+```
+
+File MAHASISWA_H_INCLUDED berfungsi sebagai kontrak (interface) untuk modul mahasiswa dalam program C++, dilindungi oleh header guard untuk mencegah pendefinisian ganda. File ini mendefinisikan struktur data mahasiswa yang terdiri dari NIM (char nim[10]), dan dua nilai integer (nilai1 dan nilai2). Selain struktur, file ini mendeklarasikan dua prototipe fungsi: void inputMhs(mahasiswa &m) yang memungkinkan pengguna mengisi data mahasiswa (menggunakan referensi untuk memodifikasi objek), dan float rata2(mahasiswa m) yang bertugas menghitung dan mengembalikan hasil rata-rata dari kedua nilai tersebut dalam tipe data floating point.
+
+### guided 2
+   ```c++
+#include "mahasiswa.h"
 #include <iostream>
 using namespace std;
 
-void kuadratkan(int &angka)
+void inputMhs(mahasiswa &m)
 {
-    angka = angka * angka;
+    cout << "input nama = ";
+    cin >> (m) .nim;
+    cout << "input nilai = ";
+    cin >> (m) .nilai1;
+    cout << "input niali2 = ";
+    cin >> m .nilai2;
+
 }
-
-int main()
+float rata2(mahasiswa m)
 {
-    int nilai;
-
-    cout << "Masukkan nilai awal yang ingin dikuadratkan: ";
-    cin >> nilai;
-
-    cout << "Nilai awal: " << nilai << endl;
-
-    kuadratkan(nilai);
-
-    cout << "Nilai setelah dikuadratkan: " << nilai << endl;
-
-    return 0;
+    return float(m.nilai1 + m.nilai2) / 2;
 }
 
 ```
 
-Kode ini mendemonstrasikan Call by Pointer, di mana fungsi tukar menerima alamat memori (&a, &b) melalui parameter pointer (*px, *py). Dengan menggunakan operator dereference (*), fungsi tersebut langsung mengakses dan menukar nilai yang ada di lokasi memori tersebut. Hasilnya, nilai asli variabel a dan b di main() diubah secara permanen (dari 10,20 menjadi 20,10), membuktikan bahwa fungsi berhasil memanipulasi variabel di luar cakupannya.
-
-> Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_guided1.png)
+Kode  ini mengimplementasikan dua fungsi inti untuk mengelola data mahasiswa yang didefinisikan dalam header mahasiswa.h. Fungsi inputMhs bertugas menerima input dari pengguna (NIM, nilai pertama, dan nilai kedua) dan menyimpannya ke objek mahasiswa melalui referensi. Sementara itu, fungsi rata2 menghitung nilai rata-rata dari kedua nilai tersebut dan mengembalikan hasilnya dalam tipe floating point untuk memastikan presisi desimal.
 
 
 
-### guided 2
+### guided 3
 
 
 ```c++
 #include <iostream>
+#include "mahasiswa.h"
 using namespace std;
 
-void tukar(int *px, int *py);
-
-int main()
-{   
-    int a = 10, b = 20;
-    
-    cout << "Sebelum ditukar: a = " << a << ", b = " << b << endl; 
-    
-    tukar(&a, &b); 
-    
-    cout << "Setelah ditukar: a = " << a << ", b = " << b << endl;
-    
+int main(){
+    mahasiswa mhs;
+    inputMhs(mhs);
+    cout << "rata rata = " << rata2(mhs);
     return 0;
 }
-
-void tukar(int *px, int *py)
-{
-    int temp = *px; 
-    
-    *px = *py; 
-    
-    *py = temp; 
-}
 ```
-Kode program C++ ini mendemonstrasikan Call by Reference menggunakan pointer untuk menukar nilai dua variabel integer, a dan b. Fungsi main() menginisialisasi a = 10 dan b = 20, kemudian memanggil prosedur tukar dengan melewatkan alamat memori dari a dan b menggunakan operator address-of (&a, &b). Di dalam fungsi tukar, parameter *px dan *py adalah pointer yang menerima alamat-alamat tersebut. Fungsi ini berhasil menukar nilai a dan b secara permanen dengan melakukan swapping pada nilai yang ditunjuk (menggunakan operator dereference *), sehingga setelah tukar selesai, main() mencetak nilai a = 20 dan b = 10, membuktikan bahwa nilai asli variabel telah diubah.
+Kode ini adalah program utama (main) yang memanfaatkan struktur dan fungsi yang dideklarasikan di file header mahasiswa.h dan diimplementasikan di file .cpp lain. Pertama, ia mendeklarasikan objek mhs dari tipe mahasiswa. Selanjutnya, fungsi inputMhs(mhs) dipanggil untuk meminta pengguna memasukkan NIM dan dua nilai (nilai1 dan nilai2) ke dalam objek tersebut. Terakhir, program menghitung dan langsung mencetak hasil rata-rata kedua nilai tersebut menggunakan fungsi rata2(mhs), lalu program diakhiri.
 
-> Output
-> ![Screenshot bagian x](outputmodul2/Screenshot_guided2.png)
+
 
 
 ## Unguided
