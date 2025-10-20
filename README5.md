@@ -605,7 +605,7 @@ int main() {
 Program di atas merupakan simulasi sistem antrian kafe mini menggunakan struktur data Queue (antrian) berbasis linked list. Setiap elemen antrian disimpan dalam struct Node yang berisi nama pembeli, pesanan, dan pointer next untuk menunjuk ke pembeli berikutnya. Variabel global front dan rear digunakan untuk menandai awal dan akhir antrian. Fungsi tambahAntrian() menambahkan pembeli baru ke akhir antrian, sedangkan layaniAntrian() menghapus pembeli dari antrian saat pesanan dilayani. Fungsi tampilAntrian() menampilkan seluruh data pembeli dalam antrian secara berurutan, dan cariPembeli() memungkinkan pencarian pembeli berdasarkan nama. Program ini memiliki menu interaktif yang memungkinkan pengguna memilih aksi seperti menambah, melayani, menampilkan, atau mencari pembeli hingga memilih keluar dari program.
 
 > Output
-> ![Screenshot bagian x](outputmodul4/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul5/Screenshot_unguided1.png)
 
 
 ### Soal 2
@@ -870,4 +870,4 @@ Program di atas merupakan implementasi sistem manajemen data buku menggunakan st
 
 
 > Output
-> ![Screenshot bagian x](outputmodul4/Screenshot_unguided2.png)
+> ![Screenshot bagian x](outputmodul5/Screenshot_unguided2.png)
