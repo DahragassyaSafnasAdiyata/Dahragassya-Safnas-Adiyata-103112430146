@@ -354,7 +354,8 @@ void printInfo(const List &L);
 
 
 ```
-
+> Output
+> ![Screenshot bagian x]()
 ## doublylist.cpp
 ```go
 #include "Doublylist.h"
@@ -410,7 +411,8 @@ void printInfo(const List &L) {
 }
 c
 ```
-
+> Output
+> ![Screenshot bagian x]()
 ## main.cpp
 ```go
 #include "Doublylist.h"
@@ -450,6 +452,7 @@ int main() {
 
 > Output
 > ![Screenshot bagian x]()
+> 
 
 Program di atas merupakan implementasi ADT Doubly Linked List untuk menyimpan data kendaraan yang terdiri dari nomor polisi, warna, dan tahun pembuatan. Struktur data ini menggunakan pointer ganda (next dan prev) agar data dapat diakses dari depan maupun belakang. Pada fungsi utama (main), pengguna diminta memasukkan data kendaraan satu per satu, dan sistem akan memeriksa apakah nomor polisi sudah terdaftar menggunakan fungsi isExist. Jika belum ada, data baru dialokasikan dengan alokasi dan dimasukkan ke bagian akhir list menggunakan insertLast. Setelah proses input selesai, fungsi printInfo menampilkan seluruh isi list mulai dari elemen terakhir hingga pertama, sehingga urutan tampilannya terbalik dari urutan input. Program ini menggambarkan cara kerja dasar list ganda dengan pengecekan duplikasi dan traversal dua arah secara dinamis.
 
