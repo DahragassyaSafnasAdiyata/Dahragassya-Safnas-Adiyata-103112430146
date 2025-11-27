@@ -92,24 +92,24 @@ int main()
 #ifndef STACK_H
 #define STACK_H
 
-#define MAX 20
-
-typedef int DataType;
+#define MAX 100
+typedef int infotype;
 
 struct Stack {
-    DataType data[MAX];
+    infotype info[MAX];
     int top;
 };
 
-void initStack(Stack &S);
-bool isEmpty(Stack S);
-bool isFull(Stack S);
-void push(Stack &S, DataType value);
-DataType pop(Stack &S);
-void displayStack(Stack S);
-void reverseStack(Stack &S);
+void initData(Stack &T);
+bool kosong(Stack T);
+bool penuh(Stack T);
+void tambah(Stack &T, infotype nilai);
+infotype ambil(Stack &T);
+void tampilkan(Stack T);
+void reverseIsi(Stack &T);
 
 #endif
+
 
 ```
 
@@ -119,55 +119,62 @@ void reverseStack(Stack &S);
 #include "stack.h"
 using namespace std;
 
-void initStack(Stack &S) {
-    S.top = -1;
+void initData(Stack &T) {
+    T.top = -1;
 }
 
-bool isEmpty(Stack S) {
-    return S.top == -1;
+bool kosong(Stack T) {
+    return T.top == -1;
 }
 
-bool isFull(Stack S) {
-    return S.top == MAX - 1;
+bool penuh(Stack T) {
+    return T.top == MAX - 1;
 }
 
-void push(Stack &S, DataType value) {
-    if (!isFull(S)) {
-        S.top++;
-        S.data[S.top] = value;
+void tambah(Stack &T, infotype nilai) {
+    if (!penuh(T)) {
+        T.top++;
+        T.info[T.top] = nilai;
     } else {
-        cout << "Stack penuh, tidak bisa menambah data!" << endl;
+        cout << "Maaf, stack sudah penuh!" << endl;
     }
 }
 
-DataType pop(Stack &S) {
-    if (!isEmpty(S)) {
-        DataType temp = S.data[S.top];
-        S.top--;
-        return temp;
+infotype ambil(Stack &T) {
+    if (!kosong(T)) {
+        infotype nilai = T.info[T.top];
+        T.top--;
+        return nilai;
     } else {
-        cout << "Stack kosong, tidak ada data untuk dihapus!" << endl;
+        cout << "Tidak bisa mengambil, stack kosong!" << endl;
         return -1;
     }
 }
 
-void displayStack(Stack S) {
-    cout << "Isi stack (dari atas ke bawah): ";
-    for (int i = S.top; i >= 0; i--) {
-        cout << S.data[i] << " ";
+void tampilkan(Stack T) {
+    if (kosong(T)) {
+        cout << "Stack saat ini kosong." << endl;
+        return;
+    }
+
+    cout << "Isi stack (dari atas): ";
+    for (int i = T.top; i >= 0; i--) {
+        cout << T.info[i] << " ";
     }
     cout << endl;
 }
 
-void reverseStack(Stack &S) {
-    Stack temp;
-    initStack(temp);
+void reverseIsi(Stack &T) {
+    Stack bantu;
+    initData(bantu);
 
-    while (!isEmpty(S)) {
-        push(temp, pop(S));
+    while (!kosong(T)) {
+        tambah(bantu, ambil(T));
     }
-    S = temp;
+
+    T = bantu;
 }
+
 
 ```
 
@@ -179,30 +186,23 @@ using namespace std;
 
 int main() {
     Stack S;
-    initStack(S);
+    initData(S);
 
-    push(S, 3);
-    push(S, 4);
-    push(S, 2);
-    push(S, 9);
-
-    pop(S);
-    push(S, 8);
-    pop(S);
-    push(S, 2);
-    pop(S);
-    push(S, 3);
-    push(S, 9);
+    tambah(S, 10);
+    tambah(S, 20);
+    tambah(S, 30);
 
     cout << "Isi stack sebelum dibalik:" << endl;
-    displayStack(S);
+    tampilkan(S);
 
-    cout << "Setelah dibalik:" << endl;
-    reverseStack(S);
-    displayStack(S);
+    reverseIsi(S);
+
+    cout << "Isi stack setelah dibalik:" << endl;
+    tampilkan(S);
 
     return 0;
 }
+
 
 ```
 
