@@ -207,7 +207,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](ssunguided1.modul7.png)
+> ![Screenshot bagian x](ScreenshotSoal_1.png)
 
 Program ini membangun struktur data stack yang bekerja dengan prinsip LIFO (Last In First Out), yaitu elemen yang dimasukkan terakhir akan dikeluarkan terlebih dahulu. Struktur stack disimpan menggunakan array dengan variabel top sebagai penanda posisi elemen teratas. Program ini dilengkapi dengan beberapa fungsi utama, antara lain push untuk menambahkan data ke dalam stack, pop untuk menghapus data dari bagian atas stack, printInfo untuk menampilkan seluruh isi stack, dan balikStack untuk membalik urutan data di dalamnya. Pada bagian fungsi main, program melakukan proses penambahan dan penghapusan beberapa elemen, kemudian menampilkan isi stack baik sebelum maupun sesudah proses pembalikan dilakukan.
 
@@ -335,7 +335,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](ssunguided2.modul7.png)
+> ![Screenshot bagian x](ScreenshotSoal_2.png)
 
 Program ini digunakan untuk membangun dan mengelola struktur data Stack menggunakan array dengan konsep LIFO (Last In First Out), yaitu elemen yang terakhir dimasukkan akan dikeluarkan terlebih dahulu. Pada file stack.h, didefinisikan struktur Stack yang memiliki array data untuk menyimpan elemen dan variabel top sebagai penanda posisi elemen teratas. File ini juga berisi deklarasi fungsi-fungsi penting seperti initStack, push, pop, showStack, reverseStack, dan pushAscending. Implementasi dari fungsi-fungsi tersebut terdapat pada file stack.cpp, di mana initStack berfungsi untuk menginisialisasi stack agar kosong, push menambahkan elemen baru ke bagian atas stack, pop menghapus elemen teratas, showStack menampilkan isi stack dari atas ke bawah, reverseStack membalik urutan elemen dalam stack dengan memanfaatkan stack sementara, dan pushAscending digunakan untuk menambahkan elemen baru sambil menjaga agar data tetap tersusun secara menaik. Pada file main.cpp, fungsi-fungsi tersebut dimanfaatkan untuk membuat stack, menambahkan data secara berurutan naik, menampilkan isi stack, kemudian membalik urutan datanya dan menampilkan hasilnya kembali.
 
