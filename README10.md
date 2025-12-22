@@ -339,7 +339,7 @@ int main() {
 ```
 > Output soal 1,2,3
 > 
-> ![Screenshot bagian x](outputmodul0/Screenshot_unguided.png)
+> ![Screenshot bagian x](outputmodul10/Screenshot_unguided1.png)
 
 Program ini dirancang untuk membangun dan mengelola struktur data Binary Search Tree (BST) menggunakan bahasa pemrograman C++ dengan pendekatan linked list dan alokasi memori dinamis. Setiap elemen dalam BST direpresentasikan sebagai sebuah node yang menyimpan satu data bertipe integer serta dua buah pointer yang masing-masing menunjuk ke node anak kiri dan anak kanan. Proses penambahan data dilakukan secara rekursif dengan mengikuti aturan Binary Search Tree, yaitu nilai yang lebih kecil dari node induk akan ditempatkan pada subtree kiri, sedangkan nilai yang lebih besar akan ditempatkan pada subtree kanan, sehingga struktur pohon tetap terurut. Selain itu, program ini juga menyediakan beberapa metode penelusuran (traversal) pohon, yaitu In-Order, Pre-Order, dan Post-Order, yang masing-masing digunakan untuk menampilkan data dalam urutan tertentu sesuai dengan kebutuhan, seperti menampilkan data terurut, menelusuri struktur pohon, atau memproses node setelah seluruh anaknya dikunjungi. Dengan adanya fitur-fitur tersebut, program ini dapat digunakan sebagai dasar untuk memahami konsep tree, rekursi, serta pengelolaan struktur data dinamis dalam C++.
 ## Referensi
