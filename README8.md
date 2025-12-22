@@ -12,16 +12,14 @@ Queue, atau antrian, adalah struktur data linear fundamental yang beroperasi ber
 #include <iostream>
 using namespace std;
 
-#define MAX 5 // ukuran maksimal queue
+#define MAX 5
 
-// Struktur Queue
 struct Queue {
     int data[MAX];
     int head;
     int tail;
 };
 
-// Membuat antrean kosong
 void createQueue(Queue &Q) {
     Q.head = -1;
     Q.tail = -1;
@@ -35,7 +33,6 @@ bool isFull(Queue Q) {
     return (Q.tail == MAX - 1);
 }
 
-// Menampilkan isi antrian
 void printQueue(Queue Q) {
     if (isEmpty(Q)) {
         cout << "Queue kosong!" << endl;
@@ -67,11 +64,9 @@ void dequeue(Queue &Q) {
         cout << "Queue kosong! Tidak ada data yang dihapus." << endl;
     } else {
         cout << "Dequeue: " << Q.data[Q.head] << endl;
-        // Jika hanya 1 elemen
         if (Q.head == Q.tail) {
             Q.head = Q.tail = -1;
         } else {
-            // Geser semua elemen ke kiri
             for (int i = Q.head; i < Q.tail; i++) {
                 Q.data[i] = Q.data[i + 1];
             }
@@ -82,6 +77,8 @@ void dequeue(Queue &Q) {
 
 int main() {
     Queue Q;
+    createQueue(Q);
+
     enqueue(Q, 5);
     enqueue(Q, 2);
     enqueue(Q, 7);
@@ -100,6 +97,7 @@ int main() {
 
     return 0;
 }
+
 ```
 
 > Output
