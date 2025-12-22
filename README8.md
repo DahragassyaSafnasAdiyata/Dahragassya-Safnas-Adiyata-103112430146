@@ -103,7 +103,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](outputmodul10/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul8/Screenshot_unguided1.png)
 
 
 Program di atas adalah implementasi struktur data **Queue** berbasis array dengan ukuran maksimal lima elemen, menggunakan konsep **FIFO**. Queue memiliki operasi utama yaitu `enqueue()` untuk menambah data di belakang antrian dan `dequeue()` untuk menghapus data dari depan, lengkap dengan pengecekan kondisi penuh dan kosong. Saat data dihapus, elemen-elemen digeser ke kiri untuk menjaga posisi antrian. Program `main()` menampilkan contoh penggunaan queue dengan beberapa proses penambahan, penghapusan, dan penampilan isi antrian untuk memperlihatkan cara kerja struktur data tersebut.
@@ -224,7 +224,7 @@ int main() {
 ```
 > Output soal 1
 > 
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](outputmodul8/Screenshot_unguided1.png)
 
 Program ini merupakan implementasi struktur data Queue (antrian) menggunakan array dengan kapasitas tetap, dimana data dimasukkan melalui operasi enqueue dan dihapus menggunakan dequeue, mengikuti prinsip FIFO (First In First Out). Pada program ini terdapat tiga file, yaitu queue.h yang berfungsi sebagai header dan berisi deklarasi struktur dan fungsi, Queue.cpp berisi implementasi fungsi seperti pengecekan antrian penuh atau kosong, penambahan data, penghapusan data, dan penampilan isi queue, sedangkan main.cpp menyediakan menu interaktif untuk pengguna agar dapat mengakses operasi queue tersebut. Program menampilkan informasi setiap kali data ditambahkan atau dihapus, serta memastikan kondisi overflow dan underflow tidak terjadi dengan melakukan pengecekan sebelum operasi dijalankan. Dengan cara ini, pengguna dapat memahami cara kerja queue secara praktis melalui simulasi input dan output yang ditampilkan di layar.
 
@@ -340,7 +340,7 @@ int main() {
 
 > Output soal 2
 > 
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](outputmodul8/Screenshot_unguided2.png)
 
 Program ini menggunakan struktur data stack (tumpukan) dengan konsep LIFO (Last In, First Out), di mana elemen terakhir yang dimasukkan akan keluar pertama. Variabel top digunakan untuk mengetahui posisi data teratas di stack. Fungsi initStack() menginisialisasi stack agar kosong, push() menambah data jika stack belum penuh, dan pop() mengambil data jika stack tidak kosong. Fungsi showStack() menampilkan isi stack, reverseStack() membalik urutannya, dan pushAscending() menambahkan data baru secara terurut naik dengan bantuan stack sementara.
 
@@ -482,7 +482,7 @@ void tampilkan(const Antrian &Q);
 
 > Output soal 3
 > 
-> ![Screenshot bagian x]()
+> ![Screenshot bagian x](outputmodul8/Screenshot_unguided3.png)
 > 
 Kode ini adalah implementasi Circular Queue menggunakan array berkapasitas MAX_SIZE = 5. Fungsi initializeQueue() mengatur queue agar kosong dengan nilai front dan rear = -1. Fungsi isEmpty() mengecek apakah queue kosong, sedangkan isFull() mengecek apakah queue penuh menggunakan perhitungan circular (rear + 1) % MAX_SIZE == front. Fungsi enqueue() menambahkan data ke bagian belakang queue, dan dequeue() menghapus data dari bagian depan sesuai prinsip FIFO. Fungsi displayQueue() digunakan untuk menampilkan isi queue secara berurutan dengan logika indeks circular.
 ## Referensi
