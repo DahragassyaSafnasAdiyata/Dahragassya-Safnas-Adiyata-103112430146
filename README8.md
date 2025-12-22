@@ -101,7 +101,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](outputmodul8/Screenshot_unguided1.png)
+> ![Screenshot bagian x](outputmodul8/Screenshot_guided.png)
 
 
 Program di atas adalah implementasi struktur data **Queue** berbasis array dengan ukuran maksimal lima elemen, menggunakan konsep **FIFO**. Queue memiliki operasi utama yaitu `enqueue()` untuk menambah data di belakang antrian dan `dequeue()` untuk menghapus data dari depan, lengkap dengan pengecekan kondisi penuh dan kosong. Saat data dihapus, elemen-elemen digeser ke kiri untuk menjaga posisi antrian. Program `main()` menampilkan contoh penggunaan queue dengan beberapa proses penambahan, penghapusan, dan penampilan isi antrian untuk memperlihatkan cara kerja struktur data tersebut.
