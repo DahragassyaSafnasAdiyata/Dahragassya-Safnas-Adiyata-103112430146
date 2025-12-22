@@ -126,6 +126,9 @@ int main()
     return 0;
 }
 ```
+> Output
+> ![Screenshot bagian x](outputmodul13/Screenshot_guided.png)
+
 
 ## UNGUIDED 
 ### unguided1
