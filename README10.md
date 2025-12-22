@@ -195,3 +195,159 @@ int main()
     return 0;
 }
 ```
+
+
+## UNGUIDED
+
+#### bstree.h
+```c++
+#ifndef BSTREE_H
+#define BSTREE_H
+
+#include <iostream>
+using namespace std;
+
+
+typedef struct Node {
+    int data;
+    Node* kiri;
+    Node* kanan;
+} Node;
+
+Node* buatNode(int x);
+void insertBST(Node* &akar, int x);
+
+void inorder(Node* akar);
+void preorder(Node* akar);
+void postorder(Node* akar);
+
+int jumlahNode(Node* akar);
+int totalNilai(Node* akar);
+int tinggiPohon(Node* akar);
+
+#endif
+```
+#### bstree.cpp
+```c++
+#include "bstree.h"
+
+Node* buatNode(int x) {
+    Node* baru = new Node;
+    baru->data = x;
+    baru->kiri = NULL;
+    baru->kanan = NULL;
+    return baru;
+}
+
+void insertBST(Node* &akar, int x) {
+    if (akar == NULL) {
+        akar = buatNode(x);
+    } else if (x < akar->data) {
+        insertBST(akar->kiri, x);
+    } else if (x > akar->data) {
+        insertBST(akar->kanan, x);
+    }
+}
+
+void inorder(Node* akar) {
+    if (akar != NULL) {
+        inorder(akar->kiri);
+        cout << akar->data << " ";
+        inorder(akar->kanan);
+    }
+}
+
+void preorder(Node* akar) {
+    if (akar != NULL) {
+        cout << akar->data << " ";
+        preorder(akar->kiri);
+        preorder(akar->kanan);
+    }
+}
+
+void postorder(Node* akar) {
+    if (akar != NULL) {
+        postorder(akar->kiri);
+        postorder(akar->kanan);
+        cout << akar->data << " ";
+    }
+}
+
+int jumlahNode(Node* akar) {
+    if (akar == NULL)
+        return 0;
+    return 1 + jumlahNode(akar->kiri) + jumlahNode(akar->kanan);
+}
+
+int totalNilai(Node* akar) {
+    if (akar == NULL)
+        return 0;
+    return akar->data + totalNilai(akar->kiri) + totalNilai(akar->kanan);
+}
+
+int tinggiPohon(Node* akar) {
+    if (akar == NULL)
+        return 0;
+
+    int kiri = tinggiPohon(akar->kiri);
+    int kanan = tinggiPohon(akar->kanan);
+
+    return (kiri > kanan) ? kiri + 1 : kanan + 1;
+}
+```
+#### main.cpp
+```c++
+#include <iostream>
+#include "bstree.h"
+using namespace std;
+
+int main() {
+    Node* akar = NULL;
+
+    /* Input data ke BST */
+    insertBST(akar, 1);
+    insertBST(akar, 2);
+    insertBST(akar, 6);
+    insertBST(akar, 4);
+    insertBST(akar, 5);
+    insertBST(akar, 3);
+    insertBST(akar, 6); 
+    insertBST(akar, 7);
+
+    cout << "=== HASIL SOAL 1 ===" << endl;
+    inorder(akar);
+    cout << endl;
+
+    cout << "\n=== HASIL SOAL 2 ===" << endl;
+    inorder(akar);
+    cout << endl;
+    cout << "Tinggi Pohon   : " << tinggiPohon(akar) << endl;
+    cout << "Jumlah Node    : " << jumlahNode(akar) << endl;
+    cout << "Total Nilai    : " << totalNilai(akar) << endl;
+
+    cout << "\n=== HASIL SOAL 3 ===" << endl;
+    cout << "Preorder   : ";
+    preorder(akar);
+    cout << endl;
+
+    cout << "Postorder  : ";
+    postorder(akar);
+    cout << endl;
+
+    return 0;
+}
+```
+> Output soal 1,2,3
+> 
+> ![Screenshot bagian x](../modul10/output/2.png)
+
+Program ini dirancang untuk membangun dan mengelola struktur data Binary Search Tree (BST) menggunakan bahasa pemrograman C++ dengan pendekatan linked list dan alokasi memori dinamis. Setiap elemen dalam BST direpresentasikan sebagai sebuah node yang menyimpan satu data bertipe integer serta dua buah pointer yang masing-masing menunjuk ke node anak kiri dan anak kanan. Proses penambahan data dilakukan secara rekursif dengan mengikuti aturan Binary Search Tree, yaitu nilai yang lebih kecil dari node induk akan ditempatkan pada subtree kiri, sedangkan nilai yang lebih besar akan ditempatkan pada subtree kanan, sehingga struktur pohon tetap terurut. Selain itu, program ini juga menyediakan beberapa metode penelusuran (traversal) pohon, yaitu In-Order, Pre-Order, dan Post-Order, yang masing-masing digunakan untuk menampilkan data dalam urutan tertentu sesuai dengan kebutuhan, seperti menampilkan data terurut, menelusuri struktur pohon, atau memproses node setelah seluruh anaknya dikunjungi. Dengan adanya fitur-fitur tersebut, program ini dapat digunakan sebagai dasar untuk memahami konsep tree, rekursi, serta pengelolaan struktur data dinamis dalam C++.
+## Referensi
+
+1. Wikipedia: https://en.wikipedia.org/wiki/Binary_search_tree
+2. Javatpoint: https://www.javatpoint.com/binary-search-tree
+3. HackerEarth: https://www.hackerearth.com/practice/data-structures/trees/binary-search-tree/tutorial/
+4. Baeldung: https://www.baeldung.com/cs/binary-search-trees
+5. StudyTonight: https://www.studytonight.com/data-structures/binary-search-tree
+6. Cornell University: https://www.cs.cornell.edu/courses/cs2110/2014fa/L15-BinarySearchTree/bst.html
+7. University of Washington: https://courses.cs.washington.edu/courses/cse373/20wi/lectures/lecture5.pdf
