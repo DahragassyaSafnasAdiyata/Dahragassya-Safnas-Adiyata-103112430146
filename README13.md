@@ -354,7 +354,7 @@ int main() {
 
 ```
 > Output
-> ![Screenshot bagian x](../modul13/output/2.png)
+> ![Screenshot bagian x](outputmodul13/Screenshot_unguided1.png)
 
 program tersebut terdiri dari file header (multilist.h), file implementasi (multilist.cpp), dan program utama (main.cpp) yang digunakan untuk membangun dan mengelola struktur data Multi Linked List dengan hubungan induk–anak menggunakan bahasa pemrograman C++. File multilist.h berfungsi sebagai tempat pendefinisian tipe data, struktur list induk dan list anak, serta deklarasi seluruh fungsi yang digunakan, sehingga program menjadi lebih terstruktur dan mudah dipahami. File multilist.cpp berisi implementasi dari fungsi-fungsi tersebut, seperti pembuatan list, alokasi dan dealokasi memori, penambahan dan penghapusan data induk maupun anak, proses pencarian data, serta penampilan seluruh isi list dengan relasi induk dan anaknya. Sementara itu, file main.cpp merupakan program utama yang digunakan untuk menguji kebenaran program dengan cara membuat list induk, menambahkan beberapa data induk dan data anak ke dalam struktur multi linked list, kemudian menampilkan seluruh data yang tersimpan. Dengan pemisahan program ke dalam tiga file ini, pengelolaan kode menjadi lebih rapi, modular, dan memudahkan proses pengembangan serta pemeliharaan program.
 
@@ -554,7 +554,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](../modul13/output/3.png)
+> ![Screenshot bagian x](outputmodul13/Screenshot_unguided2.png)
 
 Program ini terdiri dari tiga bagian utama, yaitu file header (circularlist.h), file implementasi (circularlist.cpp), dan file utama (main.cpp) yang digunakan untuk mengimplementasikan struktur data Circular Singly Linked List dengan bahasa pemrograman C++. Pada file header didefinisikan tipe data mahasiswa yang berisi nama, NIM, jenis kelamin, dan IPK, struktur elemen list yang memiliki pointer ke elemen berikutnya, serta deklarasi seluruh fungsi yang digunakan untuk pengelolaan list. File implementasi berisi realisasi fungsi-fungsi tersebut, mulai dari pembuatan list, alokasi dan dealokasi memori, proses penambahan data di awal, di tengah, dan di akhir list, penghapusan data, pencarian data berdasarkan NIM, hingga penampilan seluruh isi list. File main.cpp berperan sebagai program utama untuk menguji jalannya program dengan cara membuat list melingkar, menambahkan beberapa data mahasiswa ke dalam list, dan menampilkan seluruh data yang tersimpan. Dengan menggunakan konsep circular linked list, elemen terakhir pada list akan selalu terhubung kembali ke elemen pertama, sehingga struktur data ini cocok digunakan untuk aplikasi yang membutuhkan perputaran data secara terus-menerus.
 ## Referensi
