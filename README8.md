@@ -118,141 +118,104 @@ Program di atas adalah implementasi struktur data **Queue** berbasis array denga
 #ifndef QUEUE_H
 #define QUEUE_H
 
-const int MAX_SIZE = 5;
-typedef int ElementType;
+const int UKURAN_MAKSIMUM = 5;
+typedef int TipeData;
 
-struct Queue {
-    ElementType data[MAX_SIZE];
-    int front, rear;
+struct Antrian {
+    TipeData data[UKURAN_MAKSIMUM];
+    int depan;
+    int belakang;
 };
 
-void initQueue(Queue &Q);
+void buatAntrian(Antrian &Q);
 
-bool isEmpty(const Queue &Q);
+bool kosong(const Antrian &Q);
+bool penuh(const Antrian &Q);
 
-bool isFull(const Queue &Q);
+void tambahAntrian(Antrian &Q, TipeData nilai);
+TipeData hapusAntrian(Antrian &Q);
 
-void enqueue(Queue &Q, ElementType value);
-
-ElementType dequeue(Queue &Q);
-
-void displayQueue(const Queue &Q);
+void tampilkanAntrian(const Antrian &Q);
 
 #endif
+
 
 ```
 #### queue.cpp
 ```c++
-#include <iostream>
 #include "queue.h"
+#include <iostream>
 using namespace std;
 
-void initQueue(Queue &Q) {
-    Q.front = -1;
-    Q.rear = -1;
+void buatAntrian(Antrian &Q) {
+    Q.depan = -1;
+    Q.belakang = -1;
 }
 
-bool isEmpty(const Queue &Q) {
-    return (Q.front == -1 && Q.rear == -1);
+bool kosong(const Antrian &Q) {
+    return Q.depan == -1;
 }
 
-bool isFull(const Queue &Q) {
-    return (Q.rear == MAX_SIZE - 1);
+bool penuh(const Antrian &Q) {
+    return Q.belakang == UKURAN_MAKSIMUM - 1;
 }
 
-void enqueue(Queue &Q, ElementType value) {
-    if (isFull(Q)) {
-        cout << "Queue penuh! Tidak dapat menambahkan data." << endl;
-        return;
+void tambahAntrian(Antrian &Q, TipeData nilai) {
+    if (!penuh(Q)) {
+        if (kosong(Q)) {
+            Q.depan = 0;
+        }
+        Q.belakang++;
+        Q.data[Q.belakang] = nilai;
     }
-
-    if (isEmpty(Q)) {
-        Q.front = 0;
-    }
-
-    Q.rear++;
-    Q.data[Q.rear] = value;
-    cout << value << " berhasil ditambahkan ke dalam queue." << endl;
 }
 
-ElementType dequeue(Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong! Tidak ada data untuk dihapus." << endl;
-        return -1;
+TipeData hapusAntrian(Antrian &Q) {
+    TipeData hasil = -1;
+    if (!kosong(Q)) {
+        hasil = Q.data[Q.depan];
+        if (Q.depan == Q.belakang) {
+            Q.depan = -1;
+            Q.belakang = -1;
+        } else {
+            Q.depan++;
+        }
     }
+    return hasil;
+}
 
-    ElementType removed = Q.data[Q.front];
-
-    if (Q.front == Q.rear) {
-        initQueue(Q); // queue kembali kosong
+void tampilkanAntrian(const Antrian &Q) {
+    if (!kosong(Q)) {
+        for (int i = Q.depan; i <= Q.belakang; i++) {
+            cout << Q.data[i] << " ";
+        }
+        cout << endl;
     } else {
-        Q.front++;
+        cout << "Antrian kosong" << endl;
     }
-
-    cout << removed << " dihapus dari queue." << endl;
-    return removed;
-}
-
-void displayQueue(const Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong." << endl;
-        return;
-    }
-
-    cout << "Isi Queue: ";
-    for (int i = Q.front; i <= Q.rear; i++) {
-        cout << Q.data[i] << " ";
-    }
-    cout << endl;
 }
 
 ```
 
 #### main.cpp
 ```c++
-#include <iostream>
 #include "queue.h"
+#include <iostream>
 using namespace std;
 
 int main() {
-    Queue Q;
-    initQueue(Q);
+    Antrian Q;
+    buatAntrian(Q);
 
-    int pilihan, nilai;
+    tambahAntrian(Q, 10);
+    tambahAntrian(Q, 20);
+    tambahAntrian(Q, 30);
 
-    do {
-        cout << "\n=== MENU QUEUE ===" << endl;
-        cout << "1. Enqueue (Tambah data)" << endl;
-        cout << "2. Dequeue (Hapus data)" << endl;
-        cout << "3. Tampilkan Queue" << endl;
-        cout << "4. Keluar" << endl;
-        cout << "Pilih menu: ";
-        cin >> pilihan;
+    tampilkanAntrian(Q);
 
-        switch (pilihan) {
-            case 1:
-                cout << "Masukkan nilai: ";
-                cin >> nilai;
-                enqueue(Q, nilai);
-                break;
+    cout << "Data keluar: " << hapusAntrian(Q) << endl;
 
-            case 2:
-                dequeue(Q);
-                break;
-
-            case 3:
-                displayQueue(Q);
-                break;
-
-            case 4:
-                cout << "Program selesai." << endl;
-                break;
-
-            default:
-                cout << "Pilihan tidak valid!" << endl;
-        }
-
-    } while (pilihan != 4);
+    tampilkanAntrian(Q);
 
     return 0;
 }
@@ -269,69 +232,108 @@ Program ini merupakan implementasi struktur data Queue (antrian) menggunakan arr
 
 #### queue.cpp
 ```c++
-#include <iostream>
 #include "queue.h"
+#include <iostream>
 using namespace std;
 
-void initQueue(Queue &Q) {
-    Q.front = -1;
-    Q.rear = -1;
+void buatAntrian(Antrian &Q) {
+    Q.depan = -1;
+    Q.belakang = -1;
 }
 
-bool isEmpty(const Queue &Q) {
-    return (Q.front == -1 && Q.rear == -1);
+bool antrianKosong(const Antrian &Q) {
+    return Q.depan == -1;
 }
 
-bool isFull(const Queue &Q) {
-    return (Q.rear == MAX - 1);
+bool antrianPenuh(const Antrian &Q) {
+    return Q.belakang == MAKS - 1;
 }
 
-void enqueue(Queue &Q, infotype value) {
-    if (isFull(Q)) {
-        cout << "Queue penuh!" << endl;
-        return;
+void tambah(Antrian &Q, TipeInfo nilai) {
+    if (!antrianPenuh(Q)) {
+        if (antrianKosong(Q)) {
+            Q.depan = 0;
+        }
+        Q.belakang++;
+        Q.data[Q.belakang] = nilai;
     }
+}
 
-    if (isEmpty(Q)) {
-        Q.front = Q.rear = 0;
+TipeInfo hapus(Antrian &Q) {
+    TipeInfo hasil = -1;
+    if (!antrianKosong(Q)) {
+        hasil = Q.data[Q.depan];
+        if (Q.depan == Q.belakang) {
+            Q.depan = -1;
+            Q.belakang = -1;
+        } else {
+            Q.depan++;
+        }
+    }
+    return hasil;
+}
+
+void tampilkan(const Antrian &Q) {
+    if (!antrianKosong(Q)) {
+        for (int i = Q.depan; i <= Q.belakang; i++) {
+            cout << Q.data[i] << " ";
+        }
+        cout << endl;
     } else {
-        Q.rear++;
+        cout << "Antrian kosong" << endl;
     }
-
-    Q.data[Q.rear] = value;
-    cout << value << " berhasil dimasukkan ke queue." << endl;
 }
 
-infotype dequeue(Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong!" << endl;
-        return -1;
-    }
 
-    infotype removedValue = Q.data[Q.front];
+```
+#### queue.h
+```c++
+#ifndef QUEUE_H
+#define QUEUE_H
 
-    if (Q.front == Q.rear) {
-        initQueue(Q);
-    } else {
-        Q.front++;
-    }
+const int MAKS = 5;
+typedef int TipeInfo;
 
-    cout << removedValue << " dihapus dari queue." << endl;
-    return removedValue;
+struct Antrian {
+    TipeInfo data[MAKS];
+    int depan;
+    int belakang;
+};
+
+void buatAntrian(Antrian &Q);
+bool antrianKosong(const Antrian &Q);
+bool antrianPenuh(const Antrian &Q);
+void tambah(Antrian &Q, TipeInfo nilai);
+TipeInfo hapus(Antrian &Q);
+void tampilkan(const Antrian &Q);
+
+#endif
+
+```
+
+#### main.cpp
+```c++
+#include "queue.h"
+#include <iostream>
+using namespace std;
+
+int main() {
+    Antrian Q;
+    buatAntrian(Q);
+
+    tambah(Q, 5);
+    tambah(Q, 10);
+    tambah(Q, 15);
+
+    tampilkan(Q);
+
+    cout << "Data keluar: " << hapus(Q) << endl;
+
+    tampilkan(Q);
+
+    return 0;
 }
 
-void displayQueue(const Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong." << endl;
-        return;
-    }
-
-    cout << "Isi Queue: ";
-    for (int i = Q.front; i <= Q.rear; i++) {
-        cout << Q.data[i] << " ";
-    }
-    cout << endl;
-}
 
 ```
 
@@ -347,76 +349,135 @@ queue Alternatif 3 (head dan tail berputar).
 
 #### queue.cpp
 ```c++
-#include <iostream>
 #include "queue.h"
+#include <iostream>
 using namespace std;
 
-void initializeQueue(Queue &Q) {
-    Q.front = -1;
-    Q.rear = -1;
+void buatAntrian(Antrian &Q) {
+    Q.depan = -1;
+    Q.belakang = -1;
 }
 
-bool isEmpty(const Queue &Q) {
-    return (Q.front == -1);
+bool kosong(const Antrian &Q) {
+    return Q.depan == -1;
 }
 
-bool isFull(const Queue &Q) {
-    return ((Q.rear + 1) % MAX_SIZE == Q.front);
+bool penuh(const Antrian &Q) {
+    return (Q.belakang + 1) % MAKS == Q.depan;
 }
 
-void enqueue(Queue &Q, ElementType value) {
-    if (isFull(Q)) {
-        cout << "Queue penuh!" << endl;
+void tambah(Antrian &Q, TipeData nilai) {
+    if (penuh(Q)) {
+        cout << "Antrian penuh" << endl;
         return;
     }
 
-    if (isEmpty(Q)) {
-        Q.front = Q.rear = 0;
+    if (kosong(Q)) {
+        Q.depan = 0;
+        Q.belakang = 0;
     } else {
-        Q.rear = (Q.rear + 1) % MAX_SIZE;
+        Q.belakang = (Q.belakang + 1) % MAKS;
     }
 
-    Q.array[Q.rear] = value;
-    cout << value << " berhasil dimasukkan ke queue." << endl;
+    Q.data[Q.belakang] = nilai;
 }
 
-ElementType dequeue(Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong!" << endl;
+TipeData hapus(Antrian &Q) {
+    if (kosong(Q)) {
+        cout << "Antrian kosong" << endl;
         return -1;
     }
 
-    ElementType removedValue = Q.array[Q.front];
+    TipeData hasil = Q.data[Q.depan];
 
-    if (Q.front == Q.rear) {
-        initializeQueue(Q);
+    if (Q.depan == Q.belakang) {
+        buatAntrian(Q);
     } else {
-        Q.front = (Q.front + 1) % MAX_SIZE;
+        Q.depan = (Q.depan + 1) % MAKS;
     }
 
-    cout << removedValue << " dihapus dari queue." << endl;
-    return removedValue;
+    return hasil;
 }
 
-void displayQueue(const Queue &Q) {
-    if (isEmpty(Q)) {
-        cout << "Queue kosong." << endl;
+void tampilkan(const Antrian &Q) {
+    if (kosong(Q)) {
+        cout << "Antrian kosong" << endl;
         return;
     }
 
-    cout << "Isi Queue: ";
-    int index = Q.front;
-
+    int i = Q.depan;
     while (true) {
-        cout << Q.array[index] << " ";
-        if (index == Q.rear) break;
-        index = (index + 1) % MAX_SIZE;
+        cout << Q.data[i] << " ";
+        if (i == Q.belakang)
+            break;
+        i = (i + 1) % MAKS;
     }
-
     cout << endl;
 }
 
 ```
+
+#### main.cpp
+```c++
+#include "queue.h"
+#include <iostream>
+using namespace std;
+
+int main() {
+    Antrian Q;
+    buatAntrian(Q);
+
+    tambah(Q, 10);
+    tambah(Q, 20);
+    tambah(Q, 30);
+    tambah(Q, 40);
+    tambah(Q, 50);
+
+    tampilkan(Q);
+
+    cout << "Data keluar: " << hapus(Q) << endl;
+    cout << "Data keluar: " << hapus(Q) << endl;
+
+    tampilkan(Q);
+
+    tambah(Q, 60);
+    tambah(Q, 70);
+
+    tampilkan(Q);
+
+    return 0;
+}
+
+
+```
+
+#### queue.h
+```c++
+#ifndef QUEUE_H
+#define QUEUE_H
+
+const int MAKS = 5;
+typedef int TipeData;
+
+struct Antrian {
+    TipeData data[MAKS];
+    int depan;
+    int belakang;
+};
+
+void buatAntrian(Antrian &Q);
+bool kosong(const Antrian &Q);
+bool penuh(const Antrian &Q);
+void tambah(Antrian &Q, TipeData nilai);
+TipeData hapus(Antrian &Q);
+void tampilkan(const Antrian &Q);
+
+#endif
+
+
+```
+
+
 
 > Output soal 3
 > 
