@@ -483,3 +483,6 @@ int main() {
 }
 
 ```
+
+
+Program ini mengimplementasikan struktur data graf berarah menggunakan adjacency list berbasis pointer dalam bahasa C++. Setiap simpul (node) direpresentasikan oleh struktur ElmNode yang menyimpan informasi berupa karakter (infoGraph), penanda kunjungan (visited), pointer ke sisi pertama (firstEdge), dan pointer ke simpul berikutnya. Setiap sisi (edge) direpresentasikan oleh struktur ElmEdge yang menunjuk ke simpul tujuan dan ke sisi berikutnya. Struktur Graph menyimpan pointer ke simpul pertama sebagai awal graf.
